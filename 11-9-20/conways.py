@@ -1,17 +1,24 @@
 
-#This implmentation is incomplete and broken
-
 import numpy as np
+import matplotlib
+matplotlib.use("Agg")
 from matplotlib import pyplot as plt
-boardSize = (20, 20)
-itterations = 20
+import matplotlib.animation as animation
+
+plt.rcParams['animation.convert_path'] = "C:/msys64/mingw64/bin/magick.exe"
+fig = plt.figure()
+
+boardSize = (30, 30)
+itterations = 30
 boardState = np.zeros(boardSize)
+ims = []
 acorn = [
 [1, 1, 0, 0, 1, 1, 1],
 [0, 0, 0, 1, 0, 0, 0],
 [0, 1, 0, 0, 0, 0, 0]]
-boardState[10:13,8:15] = acorn
+boardState[int(boardSize[0]/2):int(boardSize[0]/2 + 3), int(boardSize[1]/2):int(boardSize[1]/2 + 7)] = acorn
 for itter in range(0, itterations):
+    print("Generating Step #" + str(itter))
     newState = np.zeros(boardSize)
     for i in range(0, len(boardState)):
         for j in range(0, len(boardState[0])):
@@ -26,11 +33,7 @@ for itter in range(0, itterations):
                 newState[i, j] = 1
             else:
                 newState[i, j] = 0
-    plt.imshow(newState, interpolation='nearest')
-    print(newState)
-    plt.show()
+    ims.append([plt.imshow(newState, interpolation='nearest')])
     boardState = np.copy(newState)
-    #print("=========\n")
-    print(boardState)
-    #plt.imshow(boardState, interpolation='nearest')
-    #plt.show()
+ani = animation.ArtistAnimation(fig, ims, interval=50, blit=False, repeat_delay=500)
+ani.save("conways.gif", writer="imagemagick")
