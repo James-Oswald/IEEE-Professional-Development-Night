@@ -1,4 +1,6 @@
 
+#https://www.codewars.com/kata/5a24254fe1ce0ec2eb000078
+
 def solve(string, index):
     counter = 0
     if string[index] != "(":
