@@ -3,8 +3,10 @@
 #https://cdn.discordapp.com/attachments/795816943344680982/800891961275449364/Screen_Shot_2021-01-12_at_5.png
 
 def decodeNumbers(inp):
-    if len(inp) <= 1:
+    if len(inp) == 0:
         return 1
+    if len(inp) == 1:
+        return 1 if int(inp[0]) != 0 else 0
     acc = 0
     if len(inp) >= 2 and int(inp[0:2]) <= 26:
         acc += decodeNumbers(inp[2:])
@@ -19,3 +21,4 @@ print(decodeNumbers("1028")) #1  | 10 2 8
 print(decodeNumbers("101010")) #1 
 print(decodeNumbers("2016")) #2  | 20 16 or 20 1 6 
 print(decodeNumbers("1212")) #5  | 1 2 1 2 or 12 12 or 1 21 2 or 1 2 12 or 12 1 2 
+print(decodeNumbers("1210")) #2  | 1 2 10 or 12 10 
