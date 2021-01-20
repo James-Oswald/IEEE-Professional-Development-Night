@@ -22,3 +22,6 @@ print(decodeNumbers("101010")) #1
 print(decodeNumbers("2016")) #2  | 20 16 or 20 1 6 
 print(decodeNumbers("1212")) #5  | 1 2 1 2 or 12 12 or 1 21 2 or 1 2 12 or 12 1 2 
 print(decodeNumbers("1210")) #2  | 1 2 10 or 12 10 
+print(decodeNumbers("100")) #2  
+print(decodeNumbers("0")) #0 
+print(decodeNumbers("000")) #0
