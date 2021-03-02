@@ -1,7 +1,7 @@
 
 # https://www.codewars.com/kata/555615a77ebc7c2c8a0000b8
 
-def canGiveChange(payments):
+def tickets(payments):
     curBills = {25: 0, 50: 0, 100: 0}
     for payment in payments:
         change = payment - 25    #the amount of change we need to make
@@ -15,8 +15,9 @@ def canGiveChange(payments):
                 change -= 25
             else:                                       #We can't make change
                 return "NO"
-    return "YES"                                        
+    return "YES"   
+                                    
 
-print(canGiveChange([25, 25, 50])) #Yes
-print(canGiveChange([25, 100]))  #No
-print(canGiveChange([25, 25, 50, 50, 100])) #No
+print(tickets([25, 25, 50])) #Yes
+print(tickets([25, 100]))  #No
+print(tickets([25, 25, 50, 50, 100])) #No
