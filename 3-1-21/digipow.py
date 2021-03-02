@@ -1,7 +1,7 @@
 
 #https://www.codewars.com/kata/5552101f47fc5178b1000050
 
-def digiPow(theNumber, basePower):
+def digiPowMax(theNumber, basePower):
     digitArray = []                             #Turn our number into an array of digits
     for digit in str(theNumber):
         digitArray.append(int(digit))
@@ -14,6 +14,9 @@ def digiPow(theNumber, basePower):
         return -1
     else:
         return int(theSum / theNumber)
+
+#one liner 
+digiPow = lambda n,p:int(p/n)if(p:=sum([int(c)**((p:=p+1)-1) for c in str(n)]))%n==0 else -1
 
 print(digiPow(89, 1))   # 1
 print(digiPow(92, 1))   # -1
