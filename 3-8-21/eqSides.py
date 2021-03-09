@@ -11,7 +11,7 @@ def eqSidesBad(arr):
     return -1
 
 #O(2n)
-def eqSides(arr):
+def eqSidesGood(arr):
     right = sum(arr)
     left = 0
     for index in range(0, len(arr)):
@@ -20,6 +20,8 @@ def eqSides(arr):
         right -= arr[index]
         left += arr[index]
     return -1
+
+eqSides=lambda a,r=0:r[0]if(r:=[i for i in range(len(a))if sum(a[:i])==sum(a[i+1:])])else-1
 
 print(eqSides([1,2,3,4,3,2,1])) #3
 print(eqSides([1,100,50,-51,1,1])) #1
