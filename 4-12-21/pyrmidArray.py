@@ -2,7 +2,7 @@
 #https://www.codewars.com/kata/515f51d438015969f7000013/train/python
 
 
-def pyramid(n):
+def pyramid2(n):
     if n == 0:  #default case
         return []
     else:       #recursive case
@@ -15,6 +15,18 @@ def pyramid1(n):
     for i in range(1, n+1):
         rv.append([1]*i)
     return rv
+
+def pyramid(n):
+    array = [1]
+    ar = []
+    arr = []
+    if n == 0:
+        return ar
+    while n > 0:
+        ar += array
+        arr.append(ar.copy())
+        n -= 1
+    return arr
 
 print(pyramid(0)) #=> [ ]
 print(pyramid(1)) #=> [ [1] ]
